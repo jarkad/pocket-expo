@@ -1,0 +1,25 @@
+package components
+
+templ Page() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<title>HTMX &lt;3 Templ</title>
+			<link href="/static/bootstrap.min.css" rel="stylesheet"/>
+		</head>
+		<body>
+			<nav class="navbar bg-body-tertiary mb-2">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="/">Navbar</a>
+				</div>
+			</nav>
+			<main class="container">
+				{ children... }
+			</main>
+			<script src="/static/bootstrap.min.js"></script>
+			<script src="/static/htmx.min.js"></script>
+		</body>
+	</html>
+}
