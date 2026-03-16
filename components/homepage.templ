@@ -1,0 +1,33 @@
+package components
+
+templ Homepage(count int) {
+	@Page() {
+		<h1>Hi World</h1>
+		@templ.Fragment("counter") {
+			<form
+				id="counter"
+				method="POST"
+				action="/"
+				hx-post="/"
+				hx-select="#counter"
+				hx-swap="outerHTML"
+			>
+				<input type="hidden" name="fragment" value="counter"/>
+				<input type="hidden" name="count" value={ count }/>
+				<input
+					type="submit"
+					name="action"
+					value="-"
+					class="btn btn-primary"
+				/>
+				<span class="mx-2">{ count }</span>
+				<input
+					type="submit"
+					name="action"
+					value="+"
+					class="btn btn-primary"
+				/>
+			</form>
+		}
+	}
+}
