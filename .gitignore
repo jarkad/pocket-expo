@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Jarkad <jarkad@jarkad.net.eu.org>
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 # nix
 .direnv/
 result/
@@ -10,3 +14,14 @@ db.sqlite3
 db.sqlite3-shm
 db.sqlite3-wal
 /tmp/
+
+# std
+/.bin/
+/.cache/
+/.config/
+/.data/
+/.run/
+
+# nixago: ignore-linked-files
+/lefthook.yml
+/treefmt.toml
