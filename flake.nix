@@ -1,45 +1,51 @@
-{
-  description = "Nix flake";
+# SPDX-FileCopyrightText: 2026 Jarkad <jarkad@jarkad.net.eu.org>
+#
+# SPDX-License-Identifier: EUPL-1.2
 
+{
+  # std
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nix-packages.url = "github:wimpysworld/nix-packages";
-    nix-packages.inputs.nixpkgs.follows = "nixpkgs";
+    devshell.url = "github:numtide/devshell";
+    nixago.url = "github:nix-community/nixago";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    std.inputs.devshell.follows = "devshell";
+    std.inputs.nixago.follows = "nixago";
+    std.url = "github:divnix/std";
+    tailor.url = "github:wimpysworld/nix-packages";
+    tailor.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    {
-      nixpkgs,
-      nix-packages,
-      ...
-    }:
-    let
-      supportedSystems = [
-        "x86_64-linux"
-        "aarch64-darwin"
-        "aarch64-linux"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    in
-    {
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-          tailorPkgs = nix-packages.packages.${system} or { };
-        in
-        {
-          default = pkgs.mkShell {
-            packages =
-              with pkgs;
-              [
-                actionlint
-                gh
-                just
-              ]
-              ++ (if tailorPkgs ? tailor then [ tailorPkgs.tailor ] else [ ]);
-          };
-        }
-      );
-    };
+    inputs:
+    inputs.std.growOn
+      {
+        inherit inputs;
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+        ];
+        cellsFrom = ./nix;
+        cellBlocks = with inputs.std.blockTypes; [
+          (containers "containers")
+          (devshells "shells" { ci.build = true; })
+          (installables "ci-jobs" { ci.build = true; })
+          (installables "packages" { ci.build = true; })
+          (nixago "dotfiles")
+          (runnables "operables" { ci.build = true; })
+        ];
+      }
+      {
+        devShells = inputs.std.harvest inputs.self [
+          "repo"
+          "shells"
+        ];
+        packages = inputs.std.harvest inputs.self [
+          "repo"
+          "packages"
+        ];
+        hydraJobs = inputs.std.harvest inputs.self [
+          "repo"
+          "ci-jobs"
+        ];
+      };
 }
