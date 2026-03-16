@@ -1,0 +1,28 @@
+version = '2'
+
+[linters]
+default = 'all'
+disable = [
+  'depguard', # for enterprise scale
+  'wsl',      # deprecated
+]
+
+[linters.exclusions]
+paths = ['(.+)_templ.go']
+
+[[linters.exclusions.rules]]
+path = '(.+)_test.go'
+linters = [
+  'gochecknoglobals', # overzealous
+]
+
+[linters.settings.varnamelen]
+ignore-decls = [
+  'db *gorm.DB',
+  'r *http.Request',
+  'tx *gorm.DB',
+  'w http.ResponseWriter',
+]
+
+[formatters]
+enable = ['gofmt']
