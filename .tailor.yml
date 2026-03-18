@@ -1,4 +1,4 @@
-# Initially fitted by tailor on 2026-03-18
+# Refitted by tailor on 2026-03-18
 license: EUPL-1.2
 
 repository:
@@ -114,7 +114,7 @@ swatches:
     alteration: first-fit
 
   - path: cubic.yaml
-    alteration: first-fit
+    alteration: never
 
   - path: .tailor.yml
     alteration: always
