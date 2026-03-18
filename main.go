@@ -16,6 +16,8 @@ import (
 //go:embed static
 var assets embed.FS
 
+//go:generate templ generate
+
 func main() {
 	log := log.Default()
 
