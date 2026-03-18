@@ -2,6 +2,7 @@
 license: EUPL-1.2
 
 repository:
+  description: This is a mirror. The canonical repo is at https://git.jarkad.net.eu.org/jarkad/pocket-expo
   has_wiki: false
   has_discussions: false
   has_projects: false
