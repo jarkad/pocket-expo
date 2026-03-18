@@ -1,3 +1,8 @@
+# nix
+.direnv/
+result/
+
+# project-specific
 db.sqlite3
 db.sqlite3-shm
 db.sqlite3-wal
