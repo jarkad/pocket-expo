@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 Jarkad <jarkad@jarkad.net.eu.org>
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+version: "2"
+sql:
+  - engine: sqlite
+    queries: sql/queries/counter.sql
+    schema: sql/schema/counter.sql
+    gen:
+      go:
+        package: counter
+        out: orm/counter

@@ -2,6 +2,8 @@
 package main
 
 import (
+	"context"
+	"database/sql"
 	"embed"
 	"log"
 	"net/http"
@@ -9,25 +11,25 @@ import (
 
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/handlers"
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/services"
-	"gorm.io/driver/sqlite"
-	"gorm.io/gorm"
+	_ "modernc.org/sqlite"
 )
+
+//go:generate go tool templ generate
 
 //go:embed static
 var assets embed.FS
 
-//go:generate go tool templ generate
+const dbConnStr = "db.sqlite3?_pragma=foreign_keys(1)&_pragma=journal_mode(WAL)&_pragma=busy_timeout(5000)"
 
 func main() {
 	log := log.Default()
 
-	db, err := gorm.Open(sqlite.Open(
-		"db.sqlite3?_pragma=foreign_keys(1)&_pragma=journal_mode(WAL)&_pragma=busy_timeout(5000)"))
+	db, err := sql.Open("sqlite", dbConnStr)
 	if err != nil {
 		log.Fatalln("cannot open database:", err)
 	}
 
-	counter, err := services.NewCounter(db)
+	counter, err := services.NewCounter(context.Background(), db)
 	if err != nil {
 		log.Fatalln("while initializing counter:", err)
 	}
