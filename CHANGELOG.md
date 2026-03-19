@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/jarkad/pocket-expo/compare/v1.0.0...v1.1.0) (2026-03-19)
+
+
+### Features
+
+* add goreleaser ([3f230f5](https://github.com/jarkad/pocket-expo/commit/3f230f54dda33a06227a2aea3e6216f35be942d1))
+
+
+### Bug Fixes
+
+* **release:** restrict goreleaser arch ([c3b8a7f](https://github.com/jarkad/pocket-expo/commit/c3b8a7f235b20c5a6569bcf730e812c1d5190033))
+
 ## 1.0.0 (2026-03-18)
 
 
