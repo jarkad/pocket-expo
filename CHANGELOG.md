@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/jarkad/pocket-expo/compare/v0.1.0...v0.2.0) (2026-03-19)
+
+
+### Features
+
+* **release:** upload binaries ([ce11d4b](https://github.com/jarkad/pocket-expo/commit/ce11d4bbb87aa5710fe643d0f4900d6b6c4af862))
+
 ## 0.1.0 (2026-03-19)
 
 
