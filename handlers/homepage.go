@@ -41,7 +41,7 @@ func (h *HomepageHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	defer func() {
 		err := r.Body.Close()
 		if err != nil {
-			h.Log.Print("while handling homepage: while closing body:", err)
+			h.Log.Println("while handling homepage: while closing body:", err)
 		}
 	}()
 
@@ -50,20 +50,20 @@ func (h *HomepageHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	case "+":
 		err := h.Counter.Inc(r.Context())
 		if err != nil {
-			h.Log.Print("cannot increment count:", err)
+			h.Log.Println("cannot increment count:", err)
 		}
 	case "-":
 		err := h.Counter.Dec(r.Context())
 		if err != nil {
-			h.Log.Print("cannot decrement count:", err)
+			h.Log.Println("cannot decrement count:", err)
 		}
 	default:
-		h.Log.Print("unknown action:", r.FormValue("action"))
+		h.Log.Println("unknown action:", r.FormValue("action"))
 	}
 
 	count, err := h.Counter.Get(r.Context())
 	if err != nil {
-		h.Log.Print("cannot get count:", err)
+		h.Log.Println("cannot get count:", err)
 
 		count = 42
 	}
