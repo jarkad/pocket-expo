@@ -20,14 +20,15 @@ nixpkgs.lib.mapAttrs (_: mkShell) {
       inputs.tailor.packages.tailor
       nixpkgs.air
       nixpkgs.gcc
-      nixpkgs.go
       nixpkgs.golangci-lint-langserver
       nixpkgs.gopls
-      nixpkgs.templ
     ];
     commands = [
+      { package = nixpkgs.air; }
       { package = nixpkgs.gh; }
+      { package = nixpkgs.go; }
       { package = nixpkgs.just; }
+      { package = nixpkgs.templ; }
     ];
     nixago = [
       cell.dotfiles.lefthook
