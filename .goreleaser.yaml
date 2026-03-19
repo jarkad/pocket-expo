@@ -17,11 +17,9 @@ before:
 builds:
   - env:
       - CGO_ENABLED=0
-    goos:
-      - android
-      - darwin
-      - linux
-      - windows
+    targets:
+      - linux_amd64
+      - android_arm64
 
 archives:
   - formats: [tar.gz]
