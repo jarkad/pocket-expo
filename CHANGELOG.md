@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/jarkad/pocket-expo/compare/v0.2.2...v0.3.0) (2026-03-19)
+
+
+### Features
+
+* add templ and sqlc as go tools ([52c98a5](https://github.com/jarkad/pocket-expo/commit/52c98a52a468096d651ac5250cac393b7fe5b0b1))
+
+
+### Bug Fixes
+
+* run sqlc from go generate ([1be28c4](https://github.com/jarkad/pocket-expo/commit/1be28c498299311aa060c8d203ce1a80f208ac4a))
+
 ## [0.2.2](https://github.com/jarkad/pocket-expo/compare/v0.2.1...v0.2.2) (2026-03-19)
 
 
