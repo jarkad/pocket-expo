@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.1](https://github.com/jarkad/pocket-expo/compare/v0.3.0...v0.3.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **build:** disable sqlc for now ([361807e](https://github.com/jarkad/pocket-expo/commit/361807e9b48d0327444a2b0fbfd634304e6a24df))
+* **build:** go mod vendor ([59e556e](https://github.com/jarkad/pocket-expo/commit/59e556e84671406733ba2a9310c9d28a7454f412))
+* **release:** make goreleaser honor vendor dir ([63a7930](https://github.com/jarkad/pocket-expo/commit/63a79301f065a2c8f8aae2ccacacc166ce1dc790))
+
 ## [0.3.0](https://github.com/jarkad/pocket-expo/compare/v0.2.2...v0.3.0) (2026-03-19)
 
 
