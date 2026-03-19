@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/jarkad/pocket-expo/compare/v0.2.0...v0.2.1) (2026-03-19)
+
+
+### Bug Fixes
+
+* **release:** provide github token to goreleaser ([23194d1](https://github.com/jarkad/pocket-expo/commit/23194d129ab2583919645e90e850510535fc8af7))
+
 ## [0.2.0](https://github.com/jarkad/pocket-expo/compare/v0.1.0...v0.2.0) (2026-03-19)
 
 
