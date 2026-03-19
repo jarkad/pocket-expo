@@ -31,3 +31,5 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
