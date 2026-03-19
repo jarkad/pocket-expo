@@ -28,6 +28,7 @@ nixpkgs.lib.mapAttrs (_: mkShell) {
       { package = nixpkgs.gh; }
       { package = nixpkgs.go; }
       { package = nixpkgs.just; }
+      { package = nixpkgs.sqlc; }
       { package = nixpkgs.templ; }
     ];
     nixago = [
