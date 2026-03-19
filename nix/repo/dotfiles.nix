@@ -41,7 +41,6 @@ in
     packages = [
       nixpkgs.cocogitto
       nixpkgs.golangci-lint
-      nixpkgs.reuse
       nixpkgs.ripsecrets
     ];
     data = {
@@ -58,9 +57,6 @@ in
           golangci-lint = {
             run = "golangci-lint run --fix --new-from-rev=@";
             stage_fixed = true;
-          };
-          reuse = {
-            run = "reuse lint-file '{staged_files}'";
           };
           ripsecrets = {
             run = "ripsecrets --strict-ignore '{staged_files}'";
