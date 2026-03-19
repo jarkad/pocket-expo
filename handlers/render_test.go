@@ -11,6 +11,8 @@ import (
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/components"
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/handlers"
 	"github.com/gkampitakis/go-snaps/snaps"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestRender(t *testing.T) {
@@ -21,32 +23,20 @@ func TestRender(t *testing.T) {
 	}))
 	defer ts.Close()
 
-	req, err := http.NewRequestWithContext(t.Context(), http.MethodGet, ts.URL, nil)
-	if err != nil {
-		t.Fatal("cannot contact test server: ", err)
-	}
+	req, err := http.NewRequestWithContext(t.Context(), "xxx", "asfd", nil)
+	require.NoError(t, err)
 
 	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		t.Fatal("cannot contact test server: ", err)
-	}
+	require.NoError(t, err)
 
-	snaps.MatchInlineSnapshot(t,
-		resp.StatusCode,
-		snaps.Inline("int(200)"),
-	)
-
-	snaps.MatchInlineSnapshot(t,
-		resp.Header.Get("Content-Type"),
-		snaps.Inline("text/html; charset=utf-8"),
-	)
+	assert.Equal(t, http.StatusOK, resp.StatusCode)
+	assert.Equal(t, "text/html; charset=utf-8", resp.Header.Get("Content-Type"))
 
 	body, err := io.ReadAll(resp.Body)
-	_ = resp.Body.Close()
+	require.NoError(t, err)
 
-	if err != nil {
-		t.Fatal("cannot read body:", err)
-	}
+	err = resp.Body.Close()
+	require.NoError(t, err)
 
 	snaps.WithConfig(snaps.Ext(".html")).
 		MatchStandaloneSnapshot(t, string(body))
