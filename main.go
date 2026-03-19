@@ -16,8 +16,8 @@ import (
 //go:embed static
 var assets embed.FS
 
-//go:generate templ generate
-//go:generate sqlc generate
+//go:generate go tool templ generate
+//go:generate go tool sqlc generate
 
 func main() {
 	log := log.Default()
