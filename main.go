@@ -3,7 +3,6 @@ package main
 
 import (
 	"context"
-	"database/sql"
 	"embed"
 	"log"
 	"net/http"
@@ -11,6 +10,7 @@ import (
 
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/handlers"
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/services"
+	"github.com/vinovest/sqlx"
 	_ "modernc.org/sqlite"
 )
 
@@ -24,7 +24,7 @@ const dbConnStr = "db.sqlite3?_pragma=foreign_keys(1)&_pragma=journal_mode(WAL)&
 func main() {
 	log := log.Default()
 
-	db, err := sql.Open("sqlite", dbConnStr)
+	db, err := sqlx.Connect("sqlite", dbConnStr)
 	if err != nil {
 		log.Fatalln("cannot open database:", err)
 	}

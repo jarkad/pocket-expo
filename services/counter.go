@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/orm/counter"
+	"github.com/vinovest/sqlx"
 )
 
 // CounterService is a service that provides a simple counter.
@@ -14,34 +15,18 @@ type CounterService struct {
 	db counter.DBTX
 }
 
-func withTx(ctx context.Context, db *sql.DB, body func(tx *sql.Tx) error) error {
-	tx, err := db.BeginTx(ctx, nil)
-	if err != nil {
-		return err //nolint:wrapcheck // this is a thin wrapper around an external package, for internal use only
-	}
-
-	err = body(tx)
-	if err != nil {
-		err = errors.Join(err, tx.Rollback())
-	} else {
-		err = errors.Join(err, tx.Commit())
-	}
-
-	return err
-}
-
 // NewCounter creates a new CounterService.
 //
 // During initialization, database migrations will be run.
 //
 // TODO: factor out database concerns.
-func NewCounter(ctx context.Context, db *sql.DB) (*CounterService, error) {
-	err := withTx(ctx, db, func(tx *sql.Tx) error {
-		c := counter.New(tx)
+func NewCounter(ctx context.Context, db *sqlx.DB) (*CounterService, error) {
+	err := sqlx.TransactContext(ctx, db, func(ctx context.Context, tx sqlx.Queryable) error {
+		q := counter.New(tx)
 
-		_, err := c.Get(ctx)
+		_, err := q.Get(ctx)
 		if errors.Is(err, sql.ErrNoRows) {
-			err = c.Reset(ctx)
+			err = q.Reset(ctx)
 			if err != nil {
 				return err //nolint:wrapcheck // this is a thin wrapper around an external package, for internal use only
 			}
