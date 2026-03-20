@@ -18,9 +18,9 @@ linters = [
 
 [linters.settings.varnamelen]
 ignore-decls = [
-  'db *sql.DB',
+  'db *sqlx.DB',
   'r *http.Request',
-  'tx *sql.Tx',
+  'tx *sqlx.Queryable',
   'w http.ResponseWriter',
 ]
 
