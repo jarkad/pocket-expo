@@ -28,10 +28,10 @@ func NewCounter(ctx context.Context, db *sqlx.DB) (*CounterService, error) {
 		if errors.Is(err, sql.ErrNoRows) {
 			err = q.Reset(ctx)
 			if err != nil {
-				return err //nolint:wrapcheck // this is a thin wrapper around an external package, for internal use only
+				return err //nolint:wrapcheck // the wrapper is outside this lambda
 			}
 		} else if err != nil {
-			return err //nolint:wrapcheck // this is a thin wrapper around an external package, for internal use only
+			return err //nolint:wrapcheck // the wrapper is outside this lambda
 		}
 
 		return nil
