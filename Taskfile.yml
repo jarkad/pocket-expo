@@ -20,7 +20,10 @@ tasks:
     deps:
       - build
       - migrate
-    cmd: ./pocket-expo
+    cmd: ./pocket-expo {{.CLI_ARGS}}
+
+  fmt:
+    cmd: treefmt {{.CLI_ARGS}}
 
   templ:
     cmd: go tool templ generate
