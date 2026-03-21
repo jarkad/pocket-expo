@@ -49,29 +49,38 @@ func (h *HomepageHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}()
 
+	var errorMessage string
+
 	switch r.FormValue("action") {
 	case "": // no action
 	case "+":
 		err := h.Counter.Inc(r.Context())
 		if err != nil {
 			h.Log.Println("cannot increment count:", err)
+
+			errorMessage = "could not increment"
 		}
 	case "-":
 		err := h.Counter.Dec(r.Context())
 		if err != nil {
 			h.Log.Println("cannot decrement count:", err)
+
+			errorMessage = "could not decrement"
 		}
 	default:
 		h.Log.Println("unknown action:", r.FormValue("action"))
+
+		errorMessage = "unknown action (oops!)"
 	}
 
 	count, err := h.Counter.Get(r.Context())
 	if err != nil {
 		h.Log.Println("cannot get count:", err)
 
+		errorMessage = "could not query database"
 		count = 42
 	}
 
-	view := components.Homepage(count)
+	view := components.Homepage(count, errorMessage)
 	Render(w, r, view)
 }
