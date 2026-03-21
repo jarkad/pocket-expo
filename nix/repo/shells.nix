@@ -18,13 +18,11 @@ nixpkgs.lib.mapAttrs (_: mkShell) {
     ];
     packages = [
       inputs.tailor.packages.tailor
-      nixpkgs.air
       nixpkgs.gcc
       nixpkgs.golangci-lint-langserver
       nixpkgs.gopls
     ];
     commands = [
-      { package = nixpkgs.air; }
       { package = nixpkgs.dbmate; }
       { package = nixpkgs.gh; }
       { package = nixpkgs.go; }
