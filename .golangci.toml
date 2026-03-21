@@ -9,6 +9,7 @@ default = 'all'
 disable = [
   'depguard', # for enterprise scale
   'wsl',      # deprecated
+  'nonamedreturns', # forbids useful behaviour
 ]
 
 [linters.exclusions]
@@ -22,9 +23,11 @@ linters = [
 
 [linters.settings.varnamelen]
 ignore-decls = [
+  'db *sql.DB',
   'db *sqlx.DB',
   'r *http.Request',
-  'tx *sqlx.Queryable',
+  'tx *sql.Tx',
+  'tx *sqlx.Tx',
   'w http.ResponseWriter',
 ]
 

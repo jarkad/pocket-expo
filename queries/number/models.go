@@ -2,7 +2,7 @@
 // versions:
 //   sqlc v1.30.0
 
-package counter
+package number
 
 type Counter struct {
 	Count int64
