@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  migrate:
+    cmd: go tool dbmate -u sqlite:db.sqlite3 up
+    sources:
+      - "db/migrations/**/*.sql"
+
+  build:
+    deps:
+      - sqlc
+      - templ
+    cmds:
+      - go mod tidy
+      - go build .
+
+  run:
+    deps:
+      - build
+      - migrate
+    cmd: ./pocket-expo
+
+  templ:
+    cmd: go tool templ generate
+    sources:
+      - "**/*.templ"
+    generates:
+      - "**/*_templ.go"
+
+  sqlc:
+    cmd: go tool sqlc generate
+    sources:
+      - "db/queries/**/*.sql"
+      - "db/migrations/**/*.sql"
+    generates:
+      - "queries/**/*.go"
