@@ -30,7 +30,7 @@ func NewCounter(ctx context.Context, db *sqlx.DB) (*CounterService, error) {
 
 		_, err := q.Get(ctx)
 		if errors.Is(err, sql.ErrNoRows) {
-			err = q.Reset(ctx)
+			err := q.Reset(ctx)
 			if err != nil {
 				return err //nolint:wrapcheck // the wrapper is outside this lambda
 			}
