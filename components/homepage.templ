@@ -4,9 +4,12 @@
 
 package components
 
-templ Homepage(count int) {
+templ Homepage(count int, errorMessage string) {
 	@Page() {
 		<h1>Hi World</h1>
+		if errorMessage != "" {
+			<p>{ errorMessage }</p>
+		}
 		@templ.Fragment("counter") {
 			<form
 				id="counter"
