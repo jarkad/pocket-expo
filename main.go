@@ -7,14 +7,15 @@ package main
 
 import (
 	"context"
+	"database/sql"
 	"embed"
 	"log"
 	"net/http"
 	"time"
 
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/handlers"
+	"git.jarkad.net.eu.org/jarkad/pocket-expo/repositories"
 	"git.jarkad.net.eu.org/jarkad/pocket-expo/services"
-	"github.com/vinovest/sqlx"
 	_ "modernc.org/sqlite"
 )
 
@@ -28,14 +29,19 @@ const dbConnStr = "db.sqlite3?_pragma=foreign_keys(1)&_pragma=journal_mode(WAL)&
 func main() {
 	log := log.Default()
 
-	db, err := sqlx.Connect("sqlite", dbConnStr)
+	db, err := sql.Open("sqlite", dbConnStr)
 	if err != nil {
 		log.Fatalln("cannot open database:", err)
 	}
 
-	counter, err := services.NewCounter(context.Background(), db)
+	numberRepo, err := repositories.NewNumberRepository(context.Background(), db)
 	if err != nil {
-		log.Fatalln("while initializing counter:", err)
+		log.Fatalln("while creating number repository:", err)
+	}
+
+	counter, err := services.NewCounter(numberRepo)
+	if err != nil {
+		log.Fatalln("while initializing counter service:", err)
 	}
 
 	homepageHandler := handlers.NewHomepageHandler(log, counter)

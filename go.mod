@@ -9,7 +9,6 @@ go 1.25.0
 require (
 	github.com/a-h/templ v0.3.1001
 	github.com/stretchr/testify v1.10.0
-	github.com/vinovest/sqlx v1.7.2
 	modernc.org/sqlite v1.46.2
 )
 
@@ -43,7 +42,6 @@ require (
 	github.com/maruel/natural v1.1.1 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	github.com/muir/sqltoken v0.1.0 // indirect
 	github.com/natefinch/atomic v1.0.1 // indirect
 	github.com/ncruces/go-strftime v1.0.0 // indirect
 	github.com/pganalyze/pg_query_go/v6 v6.1.0 // indirect

@@ -5,9 +5,10 @@
 version: "2"
 sql:
   - engine: sqlite
-    queries: db/queries/counter.sql
+    queries: db/queries/number.sql
     schema: db/migrations
     gen:
       go:
-        package: counter
-        out: orm/counter
+        package: number
+        out: queries/number
+        emit_prepared_queries: true

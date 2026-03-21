@@ -6,17 +6,19 @@ package services
 
 import (
 	"context"
-	"database/sql"
-	"errors"
 	"fmt"
-
-	"git.jarkad.net.eu.org/jarkad/pocket-expo/orm/counter"
-	"github.com/vinovest/sqlx"
 )
+
+// CounterRepository is a repository that stores a single integer.
+type CounterRepository interface {
+	Get(ctx context.Context) (int, error)
+	Set(ctx context.Context, value int) error
+	Update(ctx context.Context, updateFunc func(value int) (int, error)) error
+}
 
 // CounterService is a service that provides a simple counter.
 type CounterService struct {
-	db counter.DBTX
+	store CounterRepository
 }
 
 // NewCounter creates a new CounterService.
@@ -24,48 +26,25 @@ type CounterService struct {
 // During initialization, database migrations will be run.
 //
 // TODO: factor out database concerns.
-func NewCounter(ctx context.Context, db *sqlx.DB) (*CounterService, error) {
-	err := sqlx.TransactContext(ctx, db, func(ctx context.Context, tx sqlx.Queryable) error {
-		q := counter.New(tx)
-
-		_, err := q.Get(ctx)
-		if errors.Is(err, sql.ErrNoRows) {
-			err := q.Reset(ctx)
-			if err != nil {
-				return err //nolint:wrapcheck // the wrapper is outside this lambda
-			}
-		} else if err != nil {
-			return err //nolint:wrapcheck // the wrapper is outside this lambda
-		}
-
-		return nil
-	})
-	if err != nil {
-		return nil, fmt.Errorf("while initializing the counter: %w", err)
-	}
-
-	return &CounterService{
-		db: db,
-	}, nil
+func NewCounter(store CounterRepository) (*CounterService, error) {
+	return &CounterService{store}, nil
 }
 
 // Get retrieves current value of the counter.
 func (cs *CounterService) Get(ctx context.Context) (int, error) {
-	c := counter.New(cs.db)
-
-	count, err := c.Get(ctx)
+	count, err := cs.store.Get(ctx)
 	if err != nil {
 		return 0, fmt.Errorf("while querying counter: %w", err)
 	}
 
-	return int(count), nil
+	return count, nil
 }
 
 // Inc increments the counter.
 func (cs *CounterService) Inc(ctx context.Context) error {
-	c := counter.New(cs.db)
-
-	_, err := c.Increment(ctx)
+	err := cs.store.Update(ctx, func(value int) (int, error) {
+		return value + 1, nil
+	})
 	if err != nil {
 		return fmt.Errorf("while incrementing counter: %w", err)
 	}
@@ -75,9 +54,9 @@ func (cs *CounterService) Inc(ctx context.Context) error {
 
 // Dec decrements the counter.
 func (cs *CounterService) Dec(ctx context.Context) error {
-	c := counter.New(cs.db)
-
-	_, err := c.Decrement(ctx)
+	err := cs.store.Update(ctx, func(value int) (int, error) {
+		return value - 1, nil
+	})
 	if err != nil {
 		return fmt.Errorf("while decrementing counter: %w", err)
 	}
