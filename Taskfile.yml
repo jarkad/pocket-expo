@@ -9,12 +9,18 @@ tasks:
       - "db/migrations/**/*.sql"
 
   build:
-    deps:
-      - sqlc
-      - templ
     cmds:
+      - go tool sqlc generate
+      - go tool templ generate
       - go mod tidy
       - go build .
+    sources:
+      - "**/*.go"
+      - "**/*.templ"
+      - "db/migrations/**/*.sql"
+      - "db/queries/**/*.sql"
+      - exclude: "**/*_templ.go"
+      - exclude: "queries/**/*.go"
 
   run:
     deps:
@@ -24,18 +30,3 @@ tasks:
 
   fmt:
     cmd: treefmt {{.CLI_ARGS}}
-
-  templ:
-    cmd: go tool templ generate
-    sources:
-      - "**/*.templ"
-    generates:
-      - "**/*_templ.go"
-
-  sqlc:
-    cmd: go tool sqlc generate
-    sources:
-      - "db/queries/**/*.sql"
-      - "db/migrations/**/*.sql"
-    generates:
-      - "queries/**/*.go"
