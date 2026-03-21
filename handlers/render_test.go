@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Jarkad <jarkad@jarkad.net.eu.org>
+//
+// SPDX-License-Identifier: EUPL-1.2
+
 package handlers_test
 
 import (
