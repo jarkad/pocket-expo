@@ -6,7 +6,7 @@ version: "2"
 sql:
   - engine: sqlite
     queries: db/queries/counter.sql
-    schema: db/schema/counter.sql
+    schema: db/migrations
     gen:
       go:
         package: counter

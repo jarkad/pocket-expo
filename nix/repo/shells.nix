@@ -25,6 +25,7 @@ nixpkgs.lib.mapAttrs (_: mkShell) {
     ];
     commands = [
       { package = nixpkgs.air; }
+      { package = nixpkgs.dbmate; }
       { package = nixpkgs.gh; }
       { package = nixpkgs.go; }
       { package = nixpkgs.just; }
