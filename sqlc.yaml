@@ -5,8 +5,8 @@
 version: "2"
 sql:
   - engine: sqlite
-    queries: sql/queries/counter.sql
-    schema: sql/schema/counter.sql
+    queries: db/queries/counter.sql
+    schema: db/schema/counter.sql
     gen:
       go:
         package: counter
