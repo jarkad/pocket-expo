@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/jarkad/pocket-expo/compare/v1.0.0...v1.1.0) (2026-03-21)
+
+
+### Features
+
+* **dev:** auto-tidy go.mod in dev ([81cde13](https://github.com/jarkad/pocket-expo/commit/81cde13fc78efe4d6276f33af68ba7cc5cf53934))
+
+
+### Bug Fixes
+
+* **dev:** auto-run go generate in dev ([315d7b8](https://github.com/jarkad/pocket-expo/commit/315d7b8cfffaaff72c51af7f4d6b6056ae059abf))
+
 ## 1.0.0 (2026-03-21)
 
 
