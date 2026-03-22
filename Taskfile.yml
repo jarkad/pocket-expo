@@ -29,3 +29,4 @@ tasks:
     cmd: ./pocket-expo {{.CLI_ARGS}}
 
   fmt: treefmt {{.CLI_ARGS}}
+  vuln: go tool govulncheck {{.CLI_ARGS}} ./...
