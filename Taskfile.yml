@@ -28,5 +28,4 @@ tasks:
       - migrate
     cmd: ./pocket-expo {{.CLI_ARGS}}
 
-  fmt:
-    cmd: treefmt {{.CLI_ARGS}}
+  fmt: treefmt {{.CLI_ARGS}}
