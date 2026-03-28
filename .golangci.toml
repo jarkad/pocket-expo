@@ -7,9 +7,10 @@ version = '2'
 [linters]
 default = 'all'
 disable = [
-  'depguard', # for enterprise scale
-  'wsl',      # deprecated
+  'depguard',       # for enterprise scale
+  'godox',          # too minor to block commits
   'nonamedreturns', # forbids useful behaviour
+  'wsl',            # deprecated
 ]
 
 [linters.exclusions]
