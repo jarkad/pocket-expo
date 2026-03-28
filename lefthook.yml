@@ -1,0 +1,15 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+ pre-commit:
+   parallel: true
+   jobs:
+     - run: just lint
+     - run: just fmt
+       stage_fixed: true
+     - run: go mod tidy
+       stage_fixed: true
+     - run: go generate ./...
+       stage_fixed: true

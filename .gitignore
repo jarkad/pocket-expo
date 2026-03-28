@@ -21,7 +21,3 @@ dist/
 /.config/
 /.data/
 /.run/
-
-# nixago: ignore-linked-files
-/lefthook.yml
-/treefmt.toml
