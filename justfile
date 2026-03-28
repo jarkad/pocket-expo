@@ -11,6 +11,7 @@ lint:
     actionlint
     golangci-lint run
 
+# Format all source code
 fmt:
     go fmt .
     taplo fmt
