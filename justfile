@@ -11,6 +11,11 @@ lint:
     actionlint
     golangci-lint run
 
+fmt:
+    go fmt .
+    taplo fmt
+    templ fmt .
+
 # Check what tailor would change and measure
 measure:
     @tailor baste
