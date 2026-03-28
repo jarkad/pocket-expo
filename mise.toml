@@ -13,3 +13,6 @@ lefthook = "latest"
 "pipx:reuse" = "latest"
 sqlc = "latest"
 taplo = "latest"
+
+[settings]
+install_before = "7d"
