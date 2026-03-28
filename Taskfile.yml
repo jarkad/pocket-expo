@@ -4,14 +4,14 @@ version: "3"
 
 tasks:
   migrate:
-    cmd: go tool dbmate -u sqlite:db.sqlite3 up
+    cmd: dbmate -u sqlite:db.sqlite3 up
     sources:
       - "db/migrations/**/*.sql"
 
   build:
     cmds:
-      - go tool sqlc generate
-      - go tool templ generate
+      - sqlc generate
+      - templ generate
       - go mod tidy
       - go build .
     sources:
@@ -29,4 +29,4 @@ tasks:
     cmd: ./pocket-expo {{.CLI_ARGS}}
 
   fmt: treefmt {{.CLI_ARGS}}
-  vuln: go tool govulncheck {{.CLI_ARGS}} ./...
+  vuln: govulncheck {{.CLI_ARGS}} ./...

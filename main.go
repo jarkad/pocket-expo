@@ -19,7 +19,8 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-//go:generate go tool templ generate
+//go:generate sqlc generate
+//go:generate templ generate
 
 //go:embed static
 var assets embed.FS
