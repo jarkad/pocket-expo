@@ -17,7 +17,7 @@ builds:
       - CGO_ENABLED=0
     targets:
       - linux_amd64
-      - android_arm64
+      - linux_arm64
 
 archives:
   - formats: [tar.gz]
