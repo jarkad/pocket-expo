@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.0](https://github.com/jarkad/pocket-expo/compare/v1.0.0...v1.1.0) (2026-03-22)
+
+
+### Features
+
+* **build:** add `task fmt` ([2164e68](https://github.com/jarkad/pocket-expo/commit/2164e681957e25d19b05322881fc2aa226c4be37))
+* **build:** add govulncheck to Taskfile ([27fec73](https://github.com/jarkad/pocket-expo/commit/27fec73c37fc07bb67dc1b31ae489921848e3bb1))
+* **build:** add Taskfile.yml ([d1fe063](https://github.com/jarkad/pocket-expo/commit/d1fe06370761137fc51ad82e89d848db2c928c3b))
+* **build:** get rid of air ([66b871c](https://github.com/jarkad/pocket-expo/commit/66b871c71cbbd2bdcd96e6676f641997e45b898e))
+* **dev:** auto-tidy go.mod in dev ([35fec48](https://github.com/jarkad/pocket-expo/commit/35fec48786d188d75f622281b3fa100194299b58))
+* **gh:** enable merge commits ([9f8274e](https://github.com/jarkad/pocket-expo/commit/9f8274e0567bd600209c1aa7c0b211ab2d7e3306))
+
+
+### Bug Fixes
+
+* **build:** tweak taskfile watch mode ([0014e73](https://github.com/jarkad/pocket-expo/commit/0014e73f8103f13903ccbd0e31f77c38978d18c5))
+* **dev:** auto-run go generate in dev ([271d37c](https://github.com/jarkad/pocket-expo/commit/271d37c4a4c79e46d78b0dca797cf70e26971d5a))
+
 ## 1.0.0 (2026-03-21)
 
 
