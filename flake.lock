@@ -50,9 +50,18 @@
     },
     "dmerge": {
       "inputs": {
-        "haumea": ["std", "haumea"],
-        "nixlib": ["std", "lib"],
-        "yants": ["std", "yants"]
+        "haumea": [
+          "std",
+          "haumea"
+        ],
+        "nixlib": [
+          "std",
+          "lib"
+        ],
+        "yants": [
+          "std",
+          "yants"
+        ]
       },
       "locked": {
         "lastModified": 1686862774,
@@ -146,7 +155,10 @@
     },
     "haumea": {
       "inputs": {
-        "nixpkgs": ["std", "lib"]
+        "nixpkgs": [
+          "std",
+          "lib"
+        ]
       },
       "locked": {
         "lastModified": 1685133229,
@@ -165,7 +177,10 @@
     },
     "incl": {
       "inputs": {
-        "nixlib": ["std", "lib"]
+        "nixlib": [
+          "std",
+          "lib"
+        ]
       },
       "locked": {
         "lastModified": 1693483555,
@@ -220,7 +235,10 @@
       "inputs": {
         "flake-utils": "flake-utils_2",
         "nixago": "nixago_2",
-        "nixpkgs": ["nixago", "nixpkgs"]
+        "nixpkgs": [
+          "nixago",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1676070308,
@@ -240,7 +258,12 @@
       "inputs": {
         "flake-utils": "flake-utils_4",
         "nixago": "nixago_3",
-        "nixpkgs": ["nixago", "nixago-exts", "nixago", "nixpkgs"]
+        "nixpkgs": [
+          "nixago",
+          "nixago-exts",
+          "nixago",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1655508669,
@@ -260,7 +283,11 @@
       "inputs": {
         "flake-utils": "flake-utils_3",
         "nixago-exts": "nixago-exts_2",
-        "nixpkgs": ["nixago", "nixago-exts", "nixpkgs"]
+        "nixpkgs": [
+          "nixago",
+          "nixago-exts",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1676070010,
@@ -280,7 +307,13 @@
     "nixago_3": {
       "inputs": {
         "flake-utils": "flake-utils_5",
-        "nixpkgs": ["nixago", "nixago-exts", "nixago", "nixago-exts", "nixpkgs"]
+        "nixpkgs": [
+          "nixago",
+          "nixago-exts",
+          "nixago",
+          "nixago-exts",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1655405483,
@@ -329,11 +362,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1773579282,
-        "narHash": "sha256-AWuQj2+UhvejRX3XhK6SRRQezaPhj9rgtahEOaJ7D4w=",
-        "rev": "5a88de74db0e948139be4b46f9a94d64aa11391c",
+        "lastModified": 1778869304,
+        "narHash": "sha256-VdRy3A14M5vIE882DJcaaR+5wrss9Qsg4YNVbr7uj3k=",
+        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre963616.5a88de74db0e/nixexprs.tar.xz?lastModified=1773579282&rev=5a88de74db0e948139be4b46f9a94d64aa11391c"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre998534.d233902339c0/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -374,9 +407,15 @@
     "paisano": {
       "inputs": {
         "call-flake": "call-flake",
-        "nixpkgs": ["std", "nixpkgs"],
+        "nixpkgs": [
+          "std",
+          "nixpkgs"
+        ],
         "nosys": "nosys",
-        "yants": ["std", "yants"]
+        "yants": [
+          "std",
+          "yants"
+        ]
       },
       "locked": {
         "lastModified": 1708640854,
@@ -421,21 +460,40 @@
     },
     "std": {
       "inputs": {
-        "arion": ["std", "blank"],
+        "arion": [
+          "std",
+          "blank"
+        ],
         "blank": "blank",
-        "devshell": ["devshell"],
+        "devshell": [
+          "devshell"
+        ],
         "dmerge": "dmerge",
         "haumea": "haumea",
         "incl": "incl",
         "lib": "lib",
-        "makes": ["std", "blank"],
-        "microvm": ["std", "blank"],
-        "n2c": ["std", "blank"],
-        "nixago": ["nixago"],
+        "makes": [
+          "std",
+          "blank"
+        ],
+        "microvm": [
+          "std",
+          "blank"
+        ],
+        "n2c": [
+          "std",
+          "blank"
+        ],
+        "nixago": [
+          "nixago"
+        ],
         "nixpkgs": "nixpkgs_4",
         "paisano": "paisano",
         "paisano-tui": "paisano-tui",
-        "terranix": ["std", "blank"],
+        "terranix": [
+          "std",
+          "blank"
+        ],
         "yants": "yants"
       },
       "locked": {
@@ -454,14 +512,16 @@
     },
     "tailor": {
       "inputs": {
-        "nixpkgs": ["nixpkgs"]
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1773451063,
-        "narHash": "sha256-Xs8IeZEOz/GwJUpzjZtT++cTzMS77Y2JBFYWhBrKePA=",
+        "lastModified": 1778024080,
+        "narHash": "sha256-MYmnmi1vOOKVEr42p3qCV7oX6tx8HRE/OBdz95tJXag=",
         "owner": "wimpysworld",
         "repo": "nix-packages",
-        "rev": "0d0202d884c5af5f69b3a3b0482ed02e8b99a31c",
+        "rev": "233d7dfa5abba02db873798a4e5eda4a8e1047e1",
         "type": "github"
       },
       "original": {
@@ -472,7 +532,10 @@
     },
     "yants": {
       "inputs": {
-        "nixpkgs": ["std", "lib"]
+        "nixpkgs": [
+          "std",
+          "lib"
+        ]
       },
       "locked": {
         "lastModified": 1686863218,
