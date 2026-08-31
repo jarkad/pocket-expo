@@ -16,7 +16,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.TAILOR_TOKEN || secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v6
 
       - name: Tailor
         uses: wimpysworld/tailor@v0
@@ -35,7 +35,7 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v6
 
       - name: Check for flake.lock
         id: check
@@ -43,7 +43,7 @@ jobs:
 
       - name: Install Nix
         if: steps.check.outputs.found == 'true'
-        uses: DeterminateSystems/determinate-nix-action@v3.21.8
+        uses: DeterminateSystems/determinate-nix-action@v3
 
       - name: Update flake.lock
         if: steps.check.outputs.found == 'true'
