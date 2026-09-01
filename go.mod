@@ -7,7 +7,7 @@ module git.jarkad.net.eu.org/jarkad/pocket-expo
 go 1.25.8
 
 require (
-	github.com/a-h/templ v0.3.1001
+	github.com/a-h/templ v0.3.1020
 	github.com/stretchr/testify v1.11.1
 	modernc.org/sqlite v1.48.0
 )
