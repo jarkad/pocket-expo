@@ -9,7 +9,7 @@ go 1.25.8
 require (
 	github.com/a-h/templ v0.3.1020
 	github.com/stretchr/testify v1.12.1
-	modernc.org/sqlite v1.57.0
+	modernc.org/sqlite v1.59.0
 )
 
 require (
@@ -193,9 +193,9 @@ require (
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	modernc.org/libc v1.74.4 // indirect
+	modernc.org/libc v1.75.7 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
-	modernc.org/memory v1.11.0 // indirect
+	modernc.org/memory v1.12.1 // indirect
 	mvdan.cc/sh/moreinterp v0.0.0-20260120230322-19def062a997 // indirect
 	mvdan.cc/sh/v3 v3.12.1-0.20260124232039-e74afc18e65b // indirect
 )
