@@ -201,7 +201,7 @@ require (
 )
 
 require (
-	github.com/gkampitakis/go-snaps v0.5.23
+	github.com/gkampitakis/go-snaps v0.5.25
 	github.com/sergi/go-diff v1.4.0 // indirect
 )
 
