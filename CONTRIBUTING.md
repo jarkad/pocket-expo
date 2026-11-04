@@ -8,4 +8,8 @@ Contributions are welcome and appreciated.
 - **Improve documentation** directly via pull requests
 - All contributors are expected to follow the [Code of Conduct](CODE_OF_CONDUCT.md)
 - Security issues must be reported privately; see [SECURITY.md](SECURITY.md)
-- By contributing, you agree that your contributions will be licensed under the project [licence](LICENSE)
+- By contributing, you confirm that you have the right to license your contribution under the project [licence](LICENSE)
+
+## AI-assisted contributions
+
+You may not use AI.
